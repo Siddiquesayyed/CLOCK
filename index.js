@@ -12,12 +12,12 @@ setInterval(() => {
 
     let Zone;
     let Hour = Time.getHours()
+    if (Hour === 0) { Hour = '12' }
 
     if (Hour >= 12) { Hour = Hour % 12; Zone = "PM"; } else { Zone = 'AM' }
     if (Hour < 10) { Hour = "0" + Hour; }
 
-    // if (Hour < 12) { Zone = "AM" }
-    // else { Zone = "PM"; }
+
 
     document.getElementById('Time').innerHTML = `${Hour} : ${Minute} : ${Sec}  ${Zone}`
     document.getElementById('Day').innerHTML = `${date}`
@@ -26,39 +26,43 @@ setInterval(() => {
 let newTime = new Date();
 let Hour = newTime.getHours();
 
+let classList = document.getElementById('sun').classList;
+let styleAnimation = document.getElementById('move').style;
+
 if (Hour > 6 && Hour <= 11) {
-    document.getElementById('sun').classList.remove('moon');
-    document.getElementById('sun').classList.add('sun');
+    classList.remove('moon');
+    classList.add('sun');
+    document.getElementById('img').classList.add('img')
     document.body.style.backgroundColor = 'white'
     document.body.style.color = 'black'
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "mor 1s linear forwards"
+    styleAnimation.animation = "";
+    styleAnimation.animation = "mor 1s linear forwards"
 }
 if (Hour > 11 && Hour <= 15) {
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "aft 3s linear forwards"
+    styleAnimation.animation = "";
+    styleAnimation.animation = "aft 3s linear forwards"
 }
 if (Hour > 15 && Hour <= 18) {
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "eve 5s linear forwards"
+    styleAnimation.animation = "";
+    styleAnimation.animation = "eve 5s linear forwards"
 }
-
 
 if (Hour > 18 && Hour <= 23) {
-    document.getElementById('sun').classList.remove('sun');
-    document.getElementById('sun').classList.add('moon');
+    classList.remove('sun');
+    classList.add('moon');
+    document.getElementById('img').classList.remove('img')
     document.body.style.backgroundColor = 'black'
     document.body.style.color = 'white'
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "mor 1s linear forwards"
+    styleAnimation.animation = ""
+    styleAnimation.animation = "mor 1s linear forwards"
 }
 if (Hour > 23 && Hour <= 3) {
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "aft 3s linear forwards"
+    styleAnimation.animation = ""
+    styleAnimation.animation = "aft 3s linear forwards"
 }
 if (Hour > 3 && Hour <= 6) {
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "eve 5s linear forwards"
+    styleAnimation.animation = ""
+    styleAnimation.animation = "eve 5s linear forwards"
 }
 
 
