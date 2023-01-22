@@ -1,0 +1,52 @@
+body{
+    overflow: hidden;
+}
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+#Time{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+#Day{
+    font-size: 100%;
+    text-align: center;
+}
+#move{
+    margin-top: 30px;
+}
+.sun {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(230, 142, 11);
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px 30px rgb(255, 167, 36);
+}
+.moon{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(255, 219, 166);
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px 50px rgb(209, 188, 157);
+}
+@keyframes mor{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(10%);}
+}
+@keyframes aft{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(36%);}
+}
+@keyframes eve{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(85%);}
+}
+
