@@ -26,43 +26,43 @@ setInterval(() => {
 let newTime = new Date();
 let Hour = newTime.getHours();
 
-let classList = document.getElementById('sun').classList;
-let styleAnimation = document.getElementById('move').style;
+
+
 
 if (Hour > 6 && Hour <= 11) {
-    classList.remove('moon');
-    classList.add('sun');
+    document.getElementById('sun').classList.remove('moon');
+    document.getElementById('sun').classList.add('sun');
     document.getElementById('img').classList.add('img')
     document.body.style.backgroundColor = 'white'
     document.body.style.color = 'black'
-    styleAnimation.animation = "";
-    styleAnimation.animation = "mor 1s linear forwards"
+    document.getElementById('move').style.animation = "";
+    document.getElementById('move').style.animation = "mor 1s linear forwards"
 }
 if (Hour > 11 && Hour <= 15) {
-    styleAnimation.animation = "";
-    styleAnimation.animation = "aft 3s linear forwards"
+    document.getElementById('move').style.animation = "";
+    document.getElementById('move').style.animation = "aft 3s linear forwards"
 }
 if (Hour > 15 && Hour <= 18) {
-    styleAnimation.animation = "";
-    styleAnimation.animation = "eve 5s linear forwards"
+    document.getElementById('move').style.animation = "";
+    document.getElementById('move').style.animation = "eve 5s linear forwards"
 }
 
 if (Hour > 18 && Hour <= 23) {
-    classList.remove('sun');
-    classList.add('moon');
+    document.getElementById('sun').classList.remove('sun');
+    document.getElementById('sun').classList.add('moon');
     document.getElementById('img').classList.remove('img')
     document.body.style.backgroundColor = 'black'
     document.body.style.color = 'white'
-    styleAnimation.animation = ""
-    styleAnimation.animation = "mor 1s linear forwards"
+    document.getElementById('move').style.animation = ""
+    document.getElementById('move').style.animation = "mor 1s linear forwards"
 }
 if (Hour > 23 && Hour <= 3) {
-    styleAnimation.animation = ""
-    styleAnimation.animation = "aft 3s linear forwards"
+    document.getElementById('move').style.animation = ""
+    document.getElementById('move').style.animation = "aft 3s linear forwards"
 }
 if (Hour > 3 && Hour <= 6) {
-    styleAnimation.animation = ""
-    styleAnimation.animation = "eve 5s linear forwards"
+    document.getElementById('move').style.animation = ""
+    document.getElementById('move').style.animation = "eve 5s linear forwards"
 }
 
 

@@ -1,63 +1,89 @@
-body{
-    overflow: hidden;
+*{
+    margin: 0;
+    padding: 0;
 }
-.img{
-    position: absolute;
-    bottom: 0;
-    left: 0px;
-   height: 200px;
-   width: 100%;
-    z-index: 0;
+#main{
+    overflow: hidden;
+    z-index: 1;
 }
 .clock{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    z-index: 1;
+}
+.img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
     width: 100%;
-    z-index: 50;
+    z-index: 0;
+}
+.sun,.moon{
+
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+
 }
 #Time{
     text-align: center;
     font-size: 40px;
     margin-bottom: 0;
     font-weight: 600;
+  
+    
 }
 #Day{
-    font-size: 100%;
+    font-size: 20px;
     text-align: center;
 }
 #move{
     margin-top: 30px;
+    height: 150px;
 }
 .sun {
-    position: absolute;
-    height: 40px;
-    width: 40px;
     background-color: rgb(230, 142, 11);
-    border-radius: 50%;
     box-shadow: 0px 0px 50px 30px rgb(255, 167, 36);
-    z-index: 50;
 }
 .moon{
-    position: absolute;
-    height: 40px;
-    width: 40px;
     background-color: rgb(255, 219, 166);
-    border-radius: 50%;
     box-shadow: 0px 0px 50px 50px rgb(209, 188, 157);
-    z-index: 50;
 }
 @keyframes mor{
     0% {transform: translateX(0%);}
-    100% {transform: translateX(10%);}
+    100% {transform: translateX(5%);}
 }
 @keyframes aft{
     0% {transform: translateX(0%);}
-    100% {transform: translateX(46%);}
+    100% {transform: translateX(45%);}
 }
 @keyframes eve{
     0% {transform: translateX(0%);}
     100% {transform: translateX(85%);}
+}
+@media (width < 500px) {
+#Time{
+    font-size: 20px;
+}
+#Day{
+    font-size:10px ;
+}
+@keyframes mor{
+    0%,100% {transform: translateX(0%);}
+    
+}
+@keyframes aft{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(38%);}
+}
+@keyframes eve{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(78%);}
+}
+    
 }
 
