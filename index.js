@@ -12,13 +12,10 @@ setInterval(() => {
 
     let Zone;
     let Hour = Time.getHours()
-    if (Hour === 0) { Hour = '12' }
+    if (Hour == 0) { Hour = '12' }
 
-    if (Hour >= 12) { Hour = Hour % 12; Zone = "PM"; } else { Zone = 'AM' }
+    if (Hour > 12) { Hour = Hour % 12; Zone = "PM"; } else { Zone = 'AM' }
     if (Hour < 10) { Hour = "0" + Hour; }
-
-
-
     document.getElementById('Time').innerHTML = `${Hour} : ${Minute} : ${Sec}  ${Zone}`
     document.getElementById('Day').innerHTML = `${date}`
 }, 1000)
@@ -26,44 +23,55 @@ setInterval(() => {
 let newTime = new Date();
 let Hour = newTime.getHours();
 
+let list = document.getElementById('sun').classList;
+let styleMove = document.getElementById('move').style;
+let bodyStyle = document.body.style;
+let img = document.getElementById('img').style;
 
+if (Hour > 6 && Hour < 11) {
+    list.remove('moon');
+    list.add('sun');
+    bodyStyle.backgroundColor = 'white'
+    bodyStyle.color = 'black'
+    styleMove.animation = "";
+    styleMove.animation = "mor 1s linear forwards"
+}
+else if (Hour >= 11 && Hour <= 15) {
+    styleMove.animation = "";
+    styleMove.animation = "aft 3s linear forwards"
+}
+else if (Hour > 15 && Hour < 18) {
+    styleMove.animation = "";
+    styleMove.animation = "eve 5s linear forwards"
+}
+else if (Hour >= 18 && Hour <= 23) {
+    img.display = "none"
+    list.remove('sun');
+    list.add('moon');
+    bodyStyle.backgroundColor = 'black'
+    bodyStyle.color = 'white'
+    styleMove.animation = ""
+    styleMove.animation = "mor 1s linear forwards"
+}
+else if (Hour == 0 && Hour <= 3) {
+    img.display = "none"
+    list.remove('sun');
+    list.add('moon');
+    bodyStyle.backgroundColor = 'black'
+    bodyStyle.color = 'white'
+    styleMove.animation = ""
+    styleMove.animation = "aft 3s linear forwards"
+}
+else if (Hour > 3 && Hour <= 6) {
+    img.display = "none"
+    list.remove('sun');
+    list.add('moon');
+    bodyStyle.backgroundColor = 'black'
+    bodyStyle.color = 'white'
+    styleMove.animation = ""
+    styleMove.animation = "eve 5s linear forwards"
+}
 
-
-if (Hour > 6 && Hour <= 11) {
-    document.getElementById('sun').classList.remove('moon');
-    document.getElementById('sun').classList.add('sun');
-    document.getElementById('img').classList.add('img')
-    document.body.style.backgroundColor = 'white'
-    document.body.style.color = 'black'
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "mor 1s linear forwards"
-}
-if (Hour > 11 && Hour <= 15) {
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "aft 3s linear forwards"
-}
-if (Hour > 15 && Hour <= 18) {
-    document.getElementById('move').style.animation = "";
-    document.getElementById('move').style.animation = "eve 5s linear forwards"
-}
-
-if (Hour > 18 && Hour <= 23) {
-    document.getElementById('sun').classList.remove('sun');
-    document.getElementById('sun').classList.add('moon');
-    document.getElementById('img').classList.remove('img')
-    document.body.style.backgroundColor = 'black'
-    document.body.style.color = 'white'
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "mor 1s linear forwards"
-}
-if (Hour > 23 && Hour <= 3) {
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "aft 3s linear forwards"
-}
-if (Hour > 3 && Hour <= 6) {
-    document.getElementById('move').style.animation = ""
-    document.getElementById('move').style.animation = "eve 5s linear forwards"
-}
 
 
 
